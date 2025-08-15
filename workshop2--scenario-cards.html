@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Scenario Cards</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+            .scenario-card { 
+                page-break-after: always; 
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .scenario-card:last-child { page-break-after: avoid; }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #f5f7fa;
+            line-height: 1.6;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+        }
+        
+        .instructions h2 {
+            margin: 0 0 15px 0;
+            color: #1976d2;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .scenario-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 8px solid #4CAF50;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        
+        .card-1 { border-top-color: #4CAF50; }
+        .card-2 { border-top-color: #ff9800; }
+        .card-3 { border-top-color: #f44336; }
+        .card-4 { border-top-color: #9c27b0; }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .card-icon {
+            font-size: 3em;
+            margin-right: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #666;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: #4CAF50;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        
+        .card-2 .section-title::before { background: #ff9800; }
+        .card-3 .section-title::before { background: #f44336; }
+        .card-4 .section-title::before { background: #9c27b0; }
+        
+        .section-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e9ecef;
+        }
+        
+        .pain-point {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        
+        .tech-stack {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+        
+        .challenge {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .bullet-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .bullet-list li {
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .print-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .print-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions no-print">
+        <h2>📋 Scenario Card Instructions</h2>
+        <p><strong>For Teams:</strong> Give each team one scenario card. Teams have 15 minutes to discuss and fill out the planning template.</p>
+        <p><strong>Facilitation Tip:</strong> Walk around and listen to discussions. Ask probing questions like "What would happen if...?" or "How would you measure success?"</p>
+        <button class="print-btn" onclick="window.print()">🖨️ Print Scenario Cards</button>
+    </div>
+
+    <div class="cards-container">
+        <!-- Scenario 1: Growing Startup -->
+        <div class="scenario-card card-1">
+            <div class="card-header">
+                <div class="card-icon">🚀</div>
+                <h1 class="card-title">The Growing Startup</h1>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Situation</div>
+                <div class="section-content">
+                    <ul class="bullet-list">
+                        <li>Started 2 years ago with <span class="highlight">3 developers</span></li>
+                        <li>Now have <span class="highlight">12 developers</span> on the team</li>
+                        <li>Everyone works on the same codebase</li>
+                        <li>Lots of merge conflicts happening daily</li>
+                        <li>Developers constantly stepping on each other's work</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">The Pain</div>
+                <div class="section-content pain-point">
+                    <p><em>"I can't work on feature X because someone else is changing the same code areas. We spend more time resolving conflicts than writing new code."</em></p>
+                    <ul class="bullet-list">
+                        <li>Code reviews take forever with 12 people involved</li>
+                        <li>Hard to assign clear ownership of different parts</li>
+                        <li>Simple changes require coordination across the whole team</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Current Tech</div>
+                <div class="section-content tech-stack">
+                    <ul class="bullet-list">
+                        <li>One big Rails/Django/Node.js application</li>
+                        <li>Single shared database</li>
+                        <li>Everyone deploys to the same staging environment</li>
+                        <li>Shared CI/CD pipeline that gets backed up</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Your Challenge</div>
+                <div class="section-content challenge">
+                    Help them organize their code and team structure so people can work in parallel without constant conflicts and coordination overhead.
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 2: Performance Problems -->
+        <div class="scenario-card card-2">
+            <div class="card-header">
+                <div class="card-icon">🐌</div>
+                <h1 class="card-title">The Slow Parts</h1>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Situation</div>
+                <div class="section-content">
+                    <ul class="bullet-list">
+                        <li>E-commerce app with <span class="highlight">100,000 active users</span></li>
+                        <li>Most features work fine and are reasonably fast</li>
+                        <li><strong>BUT:</strong> Book search is super slow (5-10 seconds)</li>
+                        <li><strong>AND:</strong> Recommendation engine kills the database</li>
+                        <li>When recommendations run, everything else becomes slow</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">The Pain</div>
+                <div class="section-content pain-point">
+                    <p><em>"When someone searches for books, nobody else can load pages properly. The whole site crawls to a halt during peak hours."</em></p>
+                    <ul class="bullet-list">
+                        <li>Server crashes during busy shopping periods</li>
+                        <li>Can't scale just the problematic parts</li>
+                        <li>Users abandon purchases due to slowness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Current Tech</div>
+                <div class="section-content tech-stack">
+                    <ul class="bullet-list">
+                        <li>Everything runs in one monolithic application</li>
+                        <li>Single database handling all operations</li>
+                        <li>Search runs complex SQL queries on main database</li>
+                        <li>ML recommendations consume lots of CPU and memory</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Your Challenge</div>
+                <div class="section-content challenge">
+                    Fix the performance problems without making the system too complicated for the team to manage and maintain.
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 3: Reliability Issues -->
+        <div class="scenario-card card-3">
+            <div class="card-header">
+                <div class="card-icon">💥</div>
+                <h1 class="card-title">The Reliability Problem</h1>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Situation</div>
+                <div class="section-content">
+                    <ul class="bullet-list">
+                        <li><span class="highlight">Food delivery app</span> serving thousands daily</li>
+                        <li>When ANY part breaks, EVERYTHING goes down</li>
+                        <li>Lost orders = very unhappy customers and drivers</li>
+                        <li>Small bug in menu loading can break order tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">The Pain</div>
+                <div class="section-content pain-point">
+                    <p><em>"If the customer review system crashes, people can't place new orders. A bug in restaurant menu updates brings down the entire app."</em></p>
+                    <ul class="bullet-list">
+                        <li>One bad deployment kills the entire platform</li>
+                        <li>Hard to isolate and fix problems quickly</li>
+                        <li>Critical features depend on non-critical ones</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Current Tech & Critical Features</div>
+                <div class="section-content tech-stack">
+                    <p><strong>Current:</strong> Monolithic application where everything is connected</p>
+                    <p><strong>Critical Features (MUST always work):</strong></p>
+                    <ul class="bullet-list">
+                        <li>🔥 Order placement and confirmation</li>
+                        <li>🔥 Order tracking for customers and drivers</li>
+                        <li>🔥 Payment processing</li>
+                    </ul>
+                    <p><strong>Nice-to-have Features:</strong> Reviews, promotions, loyalty points</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Your Challenge</div>
+                <div class="section-content challenge">
+                    Make the critical features reliable and always available, even when other parts of the system fail or need maintenance.
+                </div>
+            </div>
+        </div>
+
+        <!-- Scenario 4: Messy Codebase -->
+        <div class="scenario-card card-4">
+            <div class="card-header">
+                <div class="card-icon">🍝</div>
+                <h1 class="card-title">The Messy Codebase</h1>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Situation</div>
+                <div class="section-content">
+                    <ul class="bullet-list">
+                        <li><span class="highlight">15-year-old application</span> with lots of history</li>
+                        <li>Multiple developers have worked on it over time</li>
+                        <li>No clear patterns or consistent structure</li>
+                        <li>User code, order code, and payment code all mixed together</li>
+                        <li>Simple changes often break unexpected things</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">The Pain</div>
+                <div class="section-content pain-point">
+                    <p><em>"I needed to change the user login flow, but somehow it affected the order reporting system. No one understands why they're connected."</em></p>
+                    <ul class="bullet-list">
+                        <li>Bug fixes consistently create new bugs elsewhere</li>
+                        <li>New features take weeks instead of days</li>
+                        <li>Developers are afraid to refactor or clean up code</li>
+                        <li>Onboarding new team members takes forever</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Current Tech</div>
+                <div class="section-content tech-stack">
+                    <ul class="bullet-list">
+                        <li>One large application with everything mixed together</li>
+                        <li>User authentication code scattered throughout</li>
+                        <li>Order processing logic mixed with UI and database code</li>
+                        <li>Payment handling embedded in random places</li>
+                        <li>Tests are fragile and often break when code changes</li>
+                        <li>No clear separation between different business domains</li>
+                        <li>Database schema that nobody fully understands</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Your Challenge</div>
+                <div class="section-content challenge">
+                    Clean up the mess and organize the code so changes don't have unexpected side effects. Make it maintainable for the long term without breaking everything in the process.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planning Template -->
+    <div style="background: white; border: 2px dashed #ccc; border-radius: 12px; padding: 20px; margin: 40px 0; grid-column: 1 / -1;">
+        <div style="font-size: 1.3em; font-weight: bold; color: #333; margin: 0 0 15px 0; text-align: center;">📝 Team Planning Template</div>
+        <p style="text-align: center; color: #666; margin-bottom: 25px;">Use this template to discuss your scenario and plan your approach</p>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #666; margin-bottom: 5px;">What's the main problem causing pain?</div>
+            <div style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; min-height: 40px; background: #fafafa;"></div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #666; margin-bottom: 5px;">What would you try FIRST (quick wins)?</div>
+            <div style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; min-height: 40px; background: #fafafa;"></div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #666; margin-bottom: 5px;">When would you consider splitting into separate services?</div>
+            <div style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; min-height: 40px; background: #fafafa;"></div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #666; margin-bottom: 5px;">What's your biggest worry about making changes?</div>
+            <div style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; min-height: 40px; background: #fafafa;"></div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <div style="font-weight: bold; color: #666; margin-bottom: 5px;">How would you measure success?</div>
+            <div style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; min-height: 40px; background: #fafafa;"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Chaos Bingo Cards - Print Ready</title>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { margin: 0; }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        
+        .print-instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+        }
+        
+        .bingo-card {
+            background: white;
+            border: 3px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .card-header {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 9px 9px 0 0;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .card-subtitle {
+            font-size: 14px;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        
+        .bingo-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 50px;
+        }
+        
+        .bingo-item:hover {
+            background: #f0f8ff;
+            border-color: #4CAF50;
+            transform: translateX(5px);
+        }
+        
+        .bingo-item.marked {
+            background: #e8f5e8;
+            border-color: #4CAF50;
+            color: #2e7d32;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .checkbox.checked {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .item-text {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .severity-high { border-left: 4px solid #ff4444; }
+        .severity-medium { border-left: 4px solid #ffaa00; }
+        .severity-low { border-left: 4px solid #44ff44; }
+        
+        .instructions {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff3e0;
+            border-radius: 8px;
+            border: 2px dashed #ff9800;
+        }
+        
+        @media print {
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .bingo-card {
+                page-break-after: always;
+                margin-bottom: 50px;
+            }
+            
+            .bingo-card:last-child {
+                page-break-after: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-instructions no-print">
+        <h2>📋 Printing Instructions</h2>
+        <p><strong>For Workshop Use:</strong> Print these cards on regular paper (one card per page) and give each participant a different card. Provide markers or pens for checking off items.</p>
+        <p><strong>Digital Use:</strong> Click items to mark them completed. Great for remote workshops!</p>
+        <button onclick="window.print()" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">🖨️ Print Cards</button>
+    </div>
+
+    <div class="instructions">
+        <h3>🎯 How to Play</h3>
+        <p>Look at the messy system diagram and check off any problems you spot in your codebase or the example. First to get a full column or find 10 items wins!</p>
+    </div>
+
+    <div class="cards-container">
+        <!-- Card A: Daily Developer Pain -->
+        <div class="bingo-card">
+            <div class="card-header">
+                CODE CHAOS BINGO
+                <div class="card-subtitle">Card A: Daily Developer Pain</div>
+            </div>
+            <div class="bingo-grid">
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">One file over 500 lines long</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Function with 10+ parameters</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"God class" that does everything</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">No automated tests</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Copy-paste code everywhere</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Hard-coded values scattered around</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Mixed languages in one file</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"Magic numbers" with no explanation</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Variables named a, b, c, temp</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Comments that lie about the code</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Everything connects to everything</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Can't change A without breaking B</div>
+                </div>
+                <div class="bingo-item severity-low" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"It works on my machine"</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Deployment takes hours</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Fear of touching old code</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card B: Team Frustrations -->
+        <div class="bingo-card">
+            <div class="card-header">
+                CODE CHAOS BINGO
+                <div class="card-subtitle">Card B: Team Frustrations</div>
+            </div>
+            <div class="bingo-grid">
+                <div class="bingo-item severity-low" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"Who wrote this?" (it was you)</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Database schema nobody understands</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Config files in 5 different places</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Bugs that keep coming back</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Simple changes take days</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">New developers take weeks to start</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Production bugs found by customers</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Manual deployment steps</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Code review takes longer than coding</div>
+                </div>
+                <div class="bingo-item severity-low" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"Legacy code" that's 6 months old</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Rollbacks are scary</div>
+                </div>
+                <div class="bingo-item severity-medium" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Testing means "click around"</div>
+                </div>
+                <div class="bingo-item severity-low" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Documentation is out of date</div>
+                </div>
+                <div class="bingo-item severity-high" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">Every bug fix creates 2 new bugs</div>
+                </div>
+                <div class="bingo-item severity-low" onclick="toggleItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="item-text">"We'll refactor this later"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleItem(item) {
+            const checkbox = item.querySelector('.checkbox');
+            const isChecked = checkbox.classList.contains('checked');
+            
+            if (isChecked) {
+                checkbox.classList.remove('checked');
+                item.classList.remove('marked');
+            } else {
+                checkbox.classList.add('checked');
+                item.classList.add('marked');
+                
+                // Add a little celebration animation
+                item.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 200);
+            }
+            
+            checkForWin(item.closest('.bingo-card'));
+        }
+        
+        function checkForWin(card) {
+            const checkedItems = card.querySelectorAll('.checkbox.checked');
+            if (checkedItems.length >= 10) {
+                setTimeout(() => {
+                    alert('🎉 BINGO! You found 10+ code smells! Time to start cleaning up!');
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
